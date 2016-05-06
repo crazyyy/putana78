@@ -1,0 +1,173 @@
+
+body {
+  margin:0px 10px 0px 10px;
+}
+
+body, td, p, input, select, textarea {
+  font-family:Arial;
+  font-size:14px;
+  color:#000000;
+}
+
+form {
+	padding: 0px;
+	margin: 0px;
+}
+
+h1 {
+	color:#000000;
+  font-size:20px;
+  margin: 0px;
+  font-weight: normal;
+}
+
+h2, h3 {
+	color:#000000;
+  font-size:18px;
+	margin: 0px;
+  font-weight: normal;
+}
+
+
+.title, big, .big {
+  font-size:18px;
+}
+
+small {
+  font-size:12px;
+}
+
+a:link, a:active, a:visited {
+  color:#000000;
+  text-decoration:underline;
+}
+
+a:hover {
+  color:#FF0000;
+}
+
+a.bottom:link, a.bottom:active, a.bottom:visited {
+  color:#C1C1C1;
+  text-decoration:underline;
+}
+
+a.bottom:hover {
+  color:#FF0000;
+}
+
+.s12, .s12 input, .s12 select, .s12 textarea {
+	font-size:12px;
+}
+
+.menu {
+	font-size:20px;
+	padding: 0px 10px 0px 10px;
+}
+
+.menu a:link, .menu a:active, .menu a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+.menu a:hover {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+.name {
+	font-size: 18px;
+}
+
+.preview {
+  padding:4px;
+  background:#FFFFFF;
+  border:1px solid #C1C1C1;
+  width:120px;
+  height:160px;
+}
+
+.icon {
+  position: relative;
+  top: 4px;
+}
+
+.param {
+  font-weight:bold;
+}
+
+.noact {
+  color:#919191;
+  text-decoration:line-through;
+}
+
+.error {
+  color:#FF0000;
+}
+
+.surcharge {
+  background-color:#faff00;
+  font-size:12px;
+}
+
+.hr {
+	height: 1px;
+	width:100%;
+	background-color: #c1c1c1;
+	margin: 10px 0px 10px 0px; 
+}
+
+.hr2 {
+	height: 1px;
+	width:100%;
+	background-color: #e7e7e7;
+	margin: 6px 0px 6px 0px; 
+}
+
+.foto_verified {
+  background-image: url(/images/foto_verified.gif);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+
+#cart_div {
+  z-index:10;
+  position:fixed;
+  top:7px;
+  right:7px;
+  font-size:18px;
+  background-color: #FF0000;
+  color:#FFFFFF;
+  padding:5px 10px 5px 10px;
+  background-color: rgba(255, 0, 0, 0.6);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+#cart_div a {
+  color:#FFFFFF;
+  text-decoration:underline;
+}
+
+.cart_clean {
+  font-size:12px;
+}
+
+.cart_remove {
+  width:20px;
+  height:20px;
+  display:inline-block;
+  background:url(/images/cart_delete.gif) no-repeat right;
+  cursor:pointer;
+  margin:0 10px 0 0;
+}
+
+.cart_add {
+  width:20px;
+  height:20px;
+  display:inline-block;
+  background:url(/images/cart_add.gif) no-repeat right;
+  cursor:pointer;
+  margin:0 10px 0 0;
+}

@@ -1,0 +1,10 @@
+banner1='<a href="http://intim-club.com" rel="nofollow" target="_blank"><img src="http://intimznakomstva.net/banners/116.gif" alt="" /></a>';
+document.getElementById('banner1').innerHTML = banner1;
+banner2='<a href="http://dosugspb24.com" rel="nofollow" target="_blank"><img src="http://intimznakomstva.net/banners/170.gif" alt="" /></a>';
+document.getElementById('banner2').innerHTML = banner2;
+banner3='<a href="http://intim-club.com" rel="nofollow" target="_blank"><img src="http://intimznakomstva.net/banners/119.gif" alt="" /></a>';
+document.getElementById('banner3').innerHTML = banner3;
+banner4='<a href="http://intim-club.com" rel="nofollow" target="_blank"><img src="http://intimznakomstva.net/banners/117.gif" alt="" /></a>';
+document.getElementById('banner4').innerHTML = banner4;
+banner5='<a href="http://intim-club.com" rel="nofollow" target="_blank"><img src="http://intimznakomstva.net/banners/118.gif" alt="" /></a>';
+document.getElementById('banner5').innerHTML = banner5;
