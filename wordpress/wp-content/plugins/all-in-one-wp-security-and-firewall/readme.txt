@@ -1,10 +1,10 @@
 === All In One WP Security & Firewall ===
-Contributors: Tips and Tricks HQ, wpsolutions, Peter Petreski, Ruhul Amin, mbrsolution, gdavide, samuelaguilera
+Contributors: Tips and Tricks HQ, wpsolutions, Peter Petreski, Ruhul Amin, mbrsolution, chesio
 Donate link: https://www.tipsandtricks-hq.com
 Tags: security, secure, Anti Virus, antivirus, ban, ban hacker, virus, firewall, firewall security, login, lockdown, htaccess, hack, malware, vulnerability, protect, protection, phishing, database, backup, plugin, sql injection, ssl, restrict, login captcha, bot, hotlink, 404 detection, admin, rename, all in one, scan, scanner, iframe,
 Requires at least: 3.5
-Tested up to: 4.4
-Stable tag: 4.0.3
+Tested up to: 4.5
+Stable tag: 4.0.8
 License: GPLv3
 
 A comprehensive, user-friendly, all in one WordPress security and firewall plugin for your site.
@@ -113,6 +113,7 @@ or malicious bots who do not have a special cookie in their browser. You (the si
 * Monitor the most active IP addresses which persistently produce the most SPAM comments and instantly block them with the click of a button.
 * Prevent comments from being submitted if it doesn't originate from your domain (this should reduce some SPAM bot comment posting on your site).
 * Add a captcha to your wordpress comment form to add security against comment spam.
+* Automatically and permanently block IP addresses which have exceeded a certain number of comments labeled as SPAM.
 
 = Front-end Text Copy Protection =
 * Ability to disable the right click, text selection and copy option for your front-end.
@@ -181,9 +182,45 @@ None
 
 == Changelog ==
 
+= 4.0.8 =
+- Added ability to identify IP addresses during user registration and option to block selected IPs.
+- Added login form captcha functionality for sub-sites in a multi-site installation. (see the Brute Force menu)
+- Fixed multi-site bug related to manual user-chosen DB prefix change.
+- Added extra XSS protection inside admin menu pages for the "tab" query parameter.
+- Added a note to the features that has the potential to lock you out if it doesn't work correctly on your site.
+- Updated Brazil-Portuguese language file.
+- Fixed issue with firewall custom rules being corrupted by magic quotes. Thanks to @chesio for fixing this.
+
+= 4.0.7 =
+- Added a new action hook "aiopws_before_set_404" which triggers just before the AIOWPS sets a 404. (handy for cases when rename login page is used which affects some themes when accessing "wp-admin" directly)
+- Fixed some potential SQL injection vulnerabilities.
+- Thanks to @chesio for submitting the following changes and applying the fixes.
+- Sub-directory install fixes.
+- Improve behavior of WP File Access tab. 
+- Fix invalid nesting of HTML elements.
+- Do not block HTTP requests that contain "tag=" in query string.
+- Option to enable the 6G firewall.
+
+= 4.0.6 =
+- Removed the viewing of contents of wp-config.php and .htaccess files in order to protect sensitive info.
+- Fixed more potential XSS vulnerabilities in some other settings pages. (Once again many thanks to Erin Germ for pointing these out)
+
+= 4.0.5 =
+- Fixed some potential XSS vulnerability in the blacklist, file system and file change detection settings pages. (Many thanks to Erin Germ for pointing these out)
+
+= 4.0.4 =
+- Added new feature: Auto Block Spammer IPs. This feature will automatically and permanently block IP addresses which are linked to comment SPAM. (see SPAM Prevention -> Comment SPAM IP Monitoring tab)
+- Added compatibility fix for the qTranslate-X plugin in the rename login page feature.
+- Added ability to send to more than one email address for file change detection feature notification.
+- Fixed bug in whois library when searching ARIN registry.
+- Fixed the handling of display of longer IPV6 strings in dashboard summary table.
+- Added hook for WooCommerce login form to display unlock button.
+- Added Dutch language translation. Thanks to Jeroen van der Linde for providing the translation files.
+- Typo fix in the "stop users enumeration" feature.
+
 = 4.0.3 =
 - Added urlencode to query strings in URLs to prevent unexpected behaviour. Thanks to @chesio for spotting the issue.
-- Added new feature to stop users enumeration. Thanks to @davidegiunchidiennea for adding this.
+- Added new feature to stop users enumeration. Thanks to Davide Giunchi @davidegiunchidiennea for adding this.
 - Added a more robust code for check_user_exists function. Thanks to Christian Carey.
 - Added cron cleanup of the global meta table.
 - Added a title in each of the admin interface menu.

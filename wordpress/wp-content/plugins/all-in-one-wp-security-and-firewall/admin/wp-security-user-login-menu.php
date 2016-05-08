@@ -33,7 +33,7 @@ class AIOWPSecurity_User_Login_Menu extends AIOWPSecurity_Admin_Menu
     function get_current_tab() 
     {
         $tab_keys = array_keys($this->menu_tabs);
-        $tab = isset( $_GET['tab'] ) ? $_GET['tab'] : $tab_keys[0];
+        $tab = isset( $_GET['tab'] ) ? sanitize_text_field($_GET['tab']) : $tab_keys[0];
         return $tab;
     }
 
@@ -173,7 +173,6 @@ class AIOWPSecurity_User_Login_Menu extends AIOWPSecurity_Admin_Menu
         <div class="inside">
         <?php
         //Display security info badge
-        global $aiowps_feature_mgr;
         $aiowps_feature_mgr->output_feature_details_badge("user-login-login-lockdown");
         ?>
 
@@ -522,6 +521,7 @@ class AIOWPSecurity_User_Login_Menu extends AIOWPSecurity_Admin_Menu
         if (is_array($entries))
         {
             //Unlock multiple records
+            $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
             $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
             $unlock_command = "UPDATE ".$lockdown_table." SET release_date = now() WHERE ID IN ".$id_list;
             $result = $wpdb->query($unlock_command);
@@ -553,6 +553,7 @@ class AIOWPSecurity_User_Login_Menu extends AIOWPSecurity_Admin_Menu
         if (is_array($entries))
         {
             //Delete multiple records
+            $entries = array_filter($entries, 'is_numeric'); //discard non-numeric ID values
             $id_list = "(" .implode(",",$entries) .")"; //Create comma separate list for DB operation
             $delete_command = "DELETE FROM ".$lockdown_table." WHERE ID IN ".$id_list;
             $result = $wpdb->query($delete_command);

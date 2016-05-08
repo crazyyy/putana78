@@ -37,7 +37,7 @@ class AIOWPSecurity_Database_Menu extends AIOWPSecurity_Admin_Menu
     function get_current_tab() 
     {
         $tab_keys = array_keys($this->menu_tabs);
-        $tab = isset( $_GET['tab'] ) ? $_GET['tab'] : $tab_keys[0];
+        $tab = isset( $_GET['tab'] ) ? sanitize_text_field($_GET['tab']) : $tab_keys[0];
         return $tab;
     }
 
@@ -118,11 +118,12 @@ class AIOWPSecurity_Database_Menu extends AIOWPSecurity_Admin_Menu
                     {
                         //User has chosen their own DB prefix value
                         $new_db_prefix = wp_strip_all_tags( trim( $_POST['aiowps_new_manual_db_prefix'] ) );
-                        $error = $wpdb->set_prefix( $new_db_prefix );
+                        $error = $wpdb->set_prefix( $new_db_prefix ); //validate the user chosen prefix
                         if(is_wp_error($error))
                         {
                             wp_die( __('<strong>ERROR</strong>: The table prefix can only contain numbers, letters, and underscores.', 'all-in-one-wp-security-and-firewall') );
                         }
+                        $wpdb->set_prefix( $old_db_prefix );
                         $perform_db_change = true;
                     }
                 }
@@ -223,10 +224,9 @@ class AIOWPSecurity_Database_Menu extends AIOWPSecurity_Admin_Menu
                 }
                 echo '<div id="message" class="updated fade"><p>';
                 _e('DB Backup was successfully completed! You will receive the backup file via email if you have enabled "Send Backup File Via Email", otherwise you can retrieve it via FTP from the following directory:','all-in-one-wp-security-and-firewall');
-                echo '<p>';
+                echo '</p><p>';
                 _e('Your DB Backup File location: ');
                 echo '<strong>'.$aiowps_backup_file_path.'</strong>';
-                echo '</p>';
                 echo '</p></div>';
             } 
             else
@@ -300,11 +300,9 @@ class AIOWPSecurity_Database_Menu extends AIOWPSecurity_Admin_Menu
         <div class="inside">
         <form action="" method="POST">
         <?php wp_nonce_field('aiowpsec-db-manual-change-nonce'); ?>
-        <table class="form-table">
-            <tr valign="top">
+        <p>
             <span class="description"><?php _e('To create a new DB backup just click on the button below.', 'all-in-one-wp-security-and-firewall'); ?></span>
-            </tr>            
-        </table>
+        </p>
         <input type="submit" name="aiowps_manual_db_backup" value="<?php _e('Create DB Backup Now', 'all-in-one-wp-security-and-firewall')?>" class="button-primary" />
         </form>
         </div></div>

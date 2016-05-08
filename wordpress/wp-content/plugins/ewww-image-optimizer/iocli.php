@@ -188,14 +188,9 @@ function ewww_image_optimizer_bulk_media( $delay = 0 ) {
 		$attachments = get_option('ewww_image_optimizer_bulk_attachments');
 	// since we aren't resuming, and weren't given a list of IDs, we will optimize everything
         } else {
+		global $wpdb;
                 // load up all the image attachments we can find
-                $attachments = get_posts( array(
-                        'numberposts' => -1,
-                        'post_type' => array('attachment', 'ims_image'),
-			'post_status' => 'any',
-                        'post_mime_type' => 'image',
-			'fields' => 'ids'
-                ));
+		$attachments = $wpdb->get_col( "SELECT ID FROM $wpdb->posts WHERE (post_type = 'attachment' OR post_type = 'ims_image') AND post_mime_type LIKE '%%image%%'" );
         }
 	// store the attachment IDs we retrieved in the 'bulk_attachments' option so we can keep track of our progress in the database
 	update_option('ewww_image_optimizer_bulk_attachments', $attachments);
@@ -297,55 +292,46 @@ function ewww_image_optimizer_scan_other () {
 		}
 		if (is_plugin_active('ml-slider/ml-slider.php') || is_plugin_active_for_network('ml-slider/ml-slider.php')) {
 			$slide_paths = array();
-	                $sliders = get_posts(array(
-	                        'numberposts' => -1,
-	                        'post_type' => 'ml-slider',
-				'post_status' => 'any',
-				'fields' => 'ids'
-	                ));
-			foreach ($sliders as $slider) {
-				$slides = get_posts(array(
-	                        	'numberposts' => -1,
-					'orderby' => 'menu_order',
-					'order' => 'ASC',
-					'post_type' => 'attachment',
-					'post_status' => 'inherit',
-					'fields' => 'ids',
-					'tax_query' => array(
-							array(
-								'taxonomy' => 'ml-slider',
-								'field' => 'slug',
-								'terms' => $slider
-							)
-						)
-					)
-				);
-				foreach ($slides as $slide) {
-					$backup_sizes = get_post_meta($slide, '_wp_attachment_backup_sizes', true);
-					$type = get_post_meta($slide, 'ml-slider_type', true);
-					$type = $type ? $type : 'image'; // backwards compatibility, fall back to 'image'
-					if ($type === 'image') {
-						foreach ($backup_sizes as $backup_size => $meta) {
-							if (preg_match('/resized-/', $backup_size)) {
-								$path = $meta['path'];
-								$image_size = ewww_image_optimizer_filesize( $path );
-								if ( ! $image_size ) {
-									continue;
-								}
-								$query = $wpdb->prepare("SELECT id FROM $wpdb->ewwwio_images WHERE path LIKE %s AND image_size LIKE '$image_size'", $path);
-								$optimized_query = $wpdb->get_results( $query, ARRAY_A );
-								if (!empty($optimized_query)) {
-									foreach ( $optimized_query as $image ) {
-										if ( $image['path'] == $path ) {
-										//	$ewww_debug .= "{$image['path']} does not match $path, continuing our search<br>";
-											$already_optimized = $image;
-										}
+			$sliders = $wpdb->get_col( "SELECT ID FROM $wpdb->posts WHERE post_type = 'ml-slider'" );
+			$slides = $wpdb->get_col( 
+				"
+				SELECT wpposts.ID 
+				FROM $wpdb->posts wpposts 
+				INNER JOIN $wpdb->term_relationships term_relationships
+						ON wpposts.ID = term_relationships.object_id
+				INNER JOIN $wpdb->terms wpterms 
+						ON term_relationships.term_taxonomy_id = wpterms.term_id
+				INNER JOIN $wpdb->term_taxonomy term_taxonomy
+						ON wpterms.term_id = term_taxonomy.term_id
+				WHERE 	term_taxonomy.taxonomy = 'ml-slider'
+					AND wpposts.post_type = 'attachment'
+				"
+			);
+			foreach ( $slides as $slide ) {
+				$backup_sizes = get_post_meta($slide, '_wp_attachment_backup_sizes', true);
+				$type = get_post_meta($slide, 'ml-slider_type', true);
+				$type = $type ? $type : 'image'; // backwards compatibility, fall back to 'image'
+				if ($type === 'image') {
+					foreach ($backup_sizes as $backup_size => $meta) {
+						if (preg_match('/resized-/', $backup_size)) {
+							$path = $meta['path'];
+							$image_size = ewww_image_optimizer_filesize( $path );
+							if ( ! $image_size ) {
+								continue;
+							}
+							$query = $wpdb->prepare("SELECT id,path FROM $wpdb->ewwwio_images WHERE path LIKE %s AND image_size LIKE '$image_size'", $path);
+							$optimized_query = $wpdb->get_results( $query, ARRAY_A );
+							if (!empty($optimized_query)) {
+								foreach ( $optimized_query as $image ) {
+									if ( $image['path'] == $path ) {
+									//	$ewww_debug .= "{$image['path']} does not match $path, continuing our search<br>";
+										$already_optimized = $image;
 									}
 								}
-								$mimetype = ewww_image_optimizer_mimetype($path, 'i');
-								if ( preg_match( '/^image\/(jpeg|png|gif)/', $mimetype ) && empty( $already_optimized ) ) {
-									$slide_paths[] = $path;
-								}
+							}
+							$mimetype = ewww_image_optimizer_mimetype($path, 'i');
+							if ( preg_match( '/^image\/(jpeg|png|gif)/', $mimetype ) && empty( $already_optimized ) ) {
+								$slide_paths[] = $path;
 							}
 						}
 					}
