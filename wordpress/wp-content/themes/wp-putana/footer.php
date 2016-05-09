@@ -1,12 +1,12 @@
                 <tr class="footers">
-                  <td bgcolor="#cdcdcd" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/s4.gif" width="10" height="10" border="0"></td>
-                  <td bgcolor="#cdcdcd" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/s3.gif" width="10" height="10" border="0"></td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="6" height="6" border="0"></td>
-                  <td bgcolor="#FFFFFF" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/w4.gif" width="10" height="10" border="0"></td>
-                  <td bgcolor="#FFFFFF" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/w3.gif" width="10" height="10" border="0"></td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="6" height="6" border="0"></td>
-                  <td bgcolor="#cdcdcd" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/s4.gif" width="10" height="10" border="0"></td>
-                  <td bgcolor="#cdcdcd" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/s3.gif" width="10" height="10" border="0"></td>
+                  <td bgcolor="#cdcdcd" align="left">&nbsp;</td>
+                  <td bgcolor="#cdcdcd" align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td bgcolor="#FFFFFF" align="left">&nbsp;</td>
+                  <td bgcolor="#FFFFFF" align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td bgcolor="#cdcdcd" align="left">&nbsp;</td>
+                  <td bgcolor="#cdcdcd" align="right">&nbsp;</td>
                 </tr>
               </tbody>
             </table>
@@ -43,5 +43,9 @@
   </center>
 
   <?php wp_footer(); ?>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cart.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/disclaimer.js"></script>
+
 </body>
 </html>

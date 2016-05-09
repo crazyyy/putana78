@@ -19,12 +19,6 @@
   <![endif]-->
   <!-- css + javascript -->
   <?php wp_head(); ?>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.fancybox.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.fancybox-buttons.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cart.js"></script>
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/disclaimer.js"></script>
-
 
 </head>
 <body <?php body_class(); ?>>
@@ -40,8 +34,8 @@
             <table bgcolor="#faff00" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tbody>
                 <tr>
-                  <td align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/y1.gif" width="10" height="10" border="0"></td>
-                  <td align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/y2.gif" width="10" height="10" border="0"></td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">&nbsp;</td>
                 </tr>
                 <tr>
                   <td colspan="2">
@@ -59,8 +53,8 @@
                   </td>
                 </tr>
                 <tr>
-                  <td align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/y4.gif" width="10" height="10" border="0"></td>
-                  <td align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/y3.gif" width="10" height="10" border="0"></td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">&nbsp;</td>
                 </tr>
               </tbody>
             </table>
@@ -73,15 +67,15 @@
             <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
               <tbody>
                 <tr>
-                  <td colspan="8"><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="8" height="8" border="0"></td>
+                  <td colspan="8">&nbsp;</td>
                 </tr>
                 <tr>
-                  <td bgcolor="#cdcdcd" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/s1.gif" width="10" height="10" border="0"></td>
-                  <td bgcolor="#cdcdcd" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/s2.gif" width="10" height="10" border="0"></td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="8" height="8" border="0"></td>
-                  <td bgcolor="#FFFFFF" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/w1.gif" width="10" height="10" border="0"></td>
-                  <td bgcolor="#FFFFFF" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/w2.gif" width="10" height="10" border="0"></td>
-                  <td><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="8" height="8" border="0"></td>
-                  <td bgcolor="#cdcdcd" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/s1.gif" width="10" height="10" border="0"></td>
-                  <td bgcolor="#cdcdcd" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/s2.gif" width="10" height="10" border="0"></td>
+                  <td bgcolor="#cdcdcd" align="left">&nbsp;</td>
+                  <td bgcolor="#cdcdcd" align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td bgcolor="#FFFFFF" align="left">&nbsp;</td>
+                  <td bgcolor="#FFFFFF" align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td bgcolor="#cdcdcd" align="left">&nbsp;</td>
+                  <td bgcolor="#cdcdcd" align="right">&nbsp;</td>
                 </tr>

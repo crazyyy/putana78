@@ -58,7 +58,7 @@
     </div>
     <div class="hr2"></div>
     <br>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/img/banners.php"></script>
+
     <!--/noindex-->
   </div>
 </td>
