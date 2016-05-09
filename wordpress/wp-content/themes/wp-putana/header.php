@@ -19,30 +19,69 @@
   <![endif]-->
   <!-- css + javascript -->
   <?php wp_head(); ?>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.fancybox-buttons.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cart.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/disclaimer.js"></script>
+
+
 </head>
 <body <?php body_class(); ?>>
-<!-- wrapper -->
-<div class="wrapper">
-  <header role="banner">
-    <div class="inner">
 
-      <div class="logo">
-        <?php if ( is_front_page() && is_home() ){ } else { ?>
-          <a href="<?php echo home_url(); ?>">
-            <?php  } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-            <?php if ( is_front_page() && is_home() ){
-            } else { ?>
-          </a>
-        <?php } ?>
-      </div><!-- /logo -->
-
-      <nav class="nav" role="navigation">
-        <?php wpeHeadNav(); ?>
-      </nav><!-- /nav -->
-
-    </div><!-- /.inner -->
-  </header><!-- /header -->
-
-  <section role="main">
-    <div class="inner">
+  <center>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/top.jpg" width="834" height="285" border="0"></td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table bgcolor="#faff00" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                <tr>
+                  <td align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/y1.gif" width="10" height="10" border="0"></td>
+                  <td align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/y2.gif" width="10" height="10" border="0"></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <table width="100%" cellpadding="5" cellspacing="0" border="0">
+                      <tbody>
+                        <tr>
+                          <td align="center" class="menu"><a href="http://putana78.com/" title="Проститутки Питера - Индивидуалки">Проститутки Питера</a></td>
+                          <td align="center" class="menu"><a href="http://putana78.com/map/" target="_blank" title="Интим карта Питера">Интим карта</a></td>
+                          <td align="center" class="menu"><a href="http://putana78.com/parni.php" title="Парни, мужчины по вызову в Питере">Парни</a></td>
+                          <td align="center" class="menu"><a href="http://putana78.com/intim_saloni.php" title="Интим салоны Питера">Интим салоны</a></td>
+                          <td align="center" class="menu"><a href="http://putana78.com/saloni_massaga.php" title="Массажные салоны Питера">Массажные салоны</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/y4.gif" width="10" height="10" border="0"></td>
+                  <td align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/y3.gif" width="10" height="10" border="0"></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+          <td valign="top">
+            <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                <tr>
+                  <td colspan="8"><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="8" height="8" border="0"></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#cdcdcd" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/s1.gif" width="10" height="10" border="0"></td>
+                  <td bgcolor="#cdcdcd" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/s2.gif" width="10" height="10" border="0"></td>
+                  <td><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="8" height="8" border="0"></td>
+                  <td bgcolor="#FFFFFF" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/w1.gif" width="10" height="10" border="0"></td>
+                  <td bgcolor="#FFFFFF" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/w2.gif" width="10" height="10" border="0"></td>
+                  <td><img src="<?php echo get_template_directory_uri(); ?>/img/s.gif" width="8" height="8" border="0"></td>
+                  <td bgcolor="#cdcdcd" align="left"><img src="<?php echo get_template_directory_uri(); ?>/img/s1.gif" width="10" height="10" border="0"></td>
+                  <td bgcolor="#cdcdcd" align="right"><img src="<?php echo get_template_directory_uri(); ?>/img/s2.gif" width="10" height="10" border="0"></td>
+                </tr>

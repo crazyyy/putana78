@@ -1,9 +1,9 @@
 /* if work with html set TRUE, else - FALSE */
-var htmlOWp = true,
+var htmlOWp = false,
   // set wordpress template folder
-  wpThemeName = 'wp-framework',
+  wpThemeName = 'wp-putana',
   // and set wordpress domain
-  wpDomain = 'wp-framework.dev';
+  wpDomain = 'putana.dev';
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 8', 'ie_mob >= 10', 'ff >= 20', 'chrome >= 24', 'safari >= 5', 'opera >= 12', 'ios >= 7', 'android >= 2.3', '> 1%', 'last 4 versions', 'bb >= 10'
