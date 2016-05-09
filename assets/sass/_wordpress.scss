@@ -1,0 +1,134 @@
+.alignnone {
+  margin: $small-spacing;
+}
+.aligncenter,
+div.aligncenter {
+  display: block;
+
+  margin: $small-spacing auto;
+}
+.alignright {
+  float: right;
+
+  margin: $small-spacing 0 $base-spacing $base-spacing;
+}
+.alignleft {
+  float: left;
+
+  margin: $small-spacing $base-spacing $base-spacing 0;
+}
+
+.wp-caption {
+  max-width: 96%;
+  padding: $small-spacing $small-spacing $small-spacing;
+
+  text-align: center;
+
+  border: $base-border;
+  background-color: $secondary-background-color;
+  img {
+    width: auto;
+    max-width: 98.5%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+  }
+  .wp-caption-text {
+    font-size: 80%;
+    line-height: $base-line-height;
+
+    margin: 0;
+    padding: 0 $small-spacing $small-spacing;
+  }
+}
+.gallery-caption {
+  font-size: 60%;
+  line-height: $base-line-height;
+
+  margin: 0;
+  padding: 0 $small-spacing $small-spacing;
+}
+
+
+/* Comments
+--------------------------------------------- */
+
+.comment-respond,
+.entry-comments,
+.entry-pings {
+  margin: 0 0 $base-spacing;
+}
+
+.entry-comments {
+  padding: $base-spacing;
+}
+
+.comment-respond,
+.entry-pings {
+  padding: $base-spacing $base-spacing $base-spacing;
+}
+
+.comment-content {
+  @extend .clearfix;
+}
+
+.entry-comments {
+  .comment-author {
+    margin-bottom: 0;
+  }
+}
+
+.comment-respond {
+  input[type='url']
+  input[type='text'],
+  input[type='email'] {
+    width: 50%;
+  }
+  label {
+    display: block;
+
+    margin-right: $base-spacing;
+  }
+}
+
+.comment-list,
+.ping-list {
+  li {
+    list-style-type: none;
+  }
+}
+
+.comment-list {
+  li {
+    margin-top: $base-spacing * 1.5;
+    padding: $base-spacing * 2;
+    li {
+      margin-right: -$base-spacing * 1.5;
+    }
+  }
+}
+
+.comment {
+  border: 2px solid #fff;
+  border-right: none;
+  background-color: $secondary-background-color;
+  .avatar {
+    margin: 0 $base-spacing $base-spacing * 1.5 0;
+  }
+}
+
+.entry-pings {
+  .reply {
+    display: none;
+  }
+}
+
+.form-allowed-tags {
+  font-size: 80%;
+
+  padding: $base-spacing * 1.5;
+
+  background-color: $secondary-background-color;
+}

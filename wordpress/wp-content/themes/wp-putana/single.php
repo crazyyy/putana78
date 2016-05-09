@@ -5,6 +5,9 @@
     <td width="100%" bgcolor="#FFFFFF" colspan="2" valign="top" align="left">
       <?php if (have_posts()): while (have_posts()) : the_post(); ?>
         <div style="padding:15px;" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+          <?php if (function_exists('easy_breadcrumbs')) easy_breadcrumbs(); ?>
+          <br>
+          <div class="hr"></div>
           <h1><?php the_title(); ?></h1>
           <?php the_content(); ?>
           <br>

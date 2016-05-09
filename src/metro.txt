@@ -1,0 +1,66 @@
+<option value="metro=1">Автово</option>
+<option value="metro=2">Адмиралтейская</option>
+<option value="metro=3">Академическая</option>
+<option value="metro=4">Балтийская</option>
+<option value="metro=5">Бухарестская</option>
+<option value="metro=6">Василеостровская</option>
+<option value="metro=7">Владимирская</option>
+<option value="metro=8">Волковская</option>
+<option value="metro=9">Выборгская</option>
+<option value="metro=10">Горьковская</option>
+<option value="metro=11">Гостиный двор</option>
+<option value="metro=12">Гражданский проспект</option>
+<option value="metro=13">Девяткино</option>
+<option value="metro=14">Достоевская</option>
+<option value="metro=15">Елизаровская</option>
+<option value="metro=16">Звенигородская</option>
+<option value="metro=17">Звёздная</option>
+<option value="metro=18">Кировский завод</option>
+<option value="metro=19">Комендантский проспект</option>
+<option value="metro=20">Крестовский остров</option>
+<option value="metro=21">Купчино</option>
+<option value="metro=22">Ладожская</option>
+<option value="metro=23">Ленинский проспект</option>
+<option value="metro=24">Лесная</option>
+<option value="metro=25">Лиговский проспект</option>
+<option value="metro=26">Ломоносовская</option>
+<option value="metro=27">Маяковская</option>
+<option value="metro=28">Международная</option>
+<option value="metro=29">Московская</option>
+<option value="metro=30">Московские ворота</option>
+<option value="metro=31">Нарвская</option>
+<option value="metro=32">Невский проспект</option>
+<option value="metro=33">Новочеркасская</option>
+<option value="metro=34">Обводный канал</option>
+<option value="metro=35">Обухово</option>
+<option value="metro=36">Озерки</option>
+<option value="metro=37">Парк Победы</option>
+<option value="metro=38">Парнас</option>
+<option value="metro=39">Петроградская</option>
+<option value="metro=40">Пионерская</option>
+<option value="metro=41">Площадь Александра Невского-1</option>
+<option value="metro=42">Площадь Александра Невского-2</option>
+<option value="metro=43">Площадь Восстания</option>
+<option value="metro=44">Площадь Ленина</option>
+<option value="metro=45">Площадь Мужества</option>
+<option value="metro=46">Политехническая</option>
+<option value="metro=47">Приморская</option>
+<option value="metro=48">Пролетарская</option>
+<option value="metro=49">Проспект Большевиков</option>
+<option value="metro=50">Проспект Ветеранов</option>
+<option value="metro=51">Проспект Просвещения</option>
+<option value="metro=52">Пушкинская</option>
+<option value="metro=53">Рыбацкое</option>
+<option value="metro=54">Садовая</option>
+<option value="metro=55">Сенная площадь</option>
+<option value="metro=56">Спасская</option>
+<option value="metro=57">Спортивная</option>
+<option value="metro=58">Старая Деревня</option>
+<option value="metro=59">Технологический институт</option>
+<option value="metro=60">Удельная</option>
+<option value="metro=61">Улица Дыбенко</option>
+<option value="metro=62">Фрунзенская</option>
+<option value="metro=63">Чернышевская</option>
+<option value="metro=64">Чёрная речка</option>
+<option value="metro=65">Чкаловская</option>
+<option value="metro=66">Электросила</option>

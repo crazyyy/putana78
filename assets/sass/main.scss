@@ -1,4 +1,6 @@
+@import 'variables';
 @import 'mixin';
+@import 'wordpress';
 $black: #000;
 
 body {
@@ -258,4 +260,34 @@ a {
 }
 .new-items {
   color: #c1c1c1 !important;
+}
+.feature-img {
+  width: 130px;
+  img {
+    max-width: 130px;
+    padding: 4px;
+
+    border: 1px solid #c1c1c1;
+    background: #fff;
+  }
+}
+.cart_add {
+  display: none;
+}
+.post-looper {
+  padding: 20px;
+}
+.cat-title {
+  padding: 0 20px;
+}
+.pagination {
+
+    text-align: center;
+  a,span {
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
+.girls-title {
+  margin-bottom: 10px;
 }

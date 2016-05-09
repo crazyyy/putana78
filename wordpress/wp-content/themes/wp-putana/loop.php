@@ -1,29 +1,33 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-  <div id="post-<?php the_ID(); ?>" <?php post_class('looper'); ?>>
+  <div id="post-<?php the_ID(); ?>" <?php post_class('post-looper looper'); ?>>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td align="left" valign="top">
+            <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <?php if ( has_post_thumbnail()) :
+                the_post_thumbnail('medium');
+              else: ?>
+                <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+              <?php endif; ?>
+            </a><!-- /post thumbnail -->
+          </td>
+          <td width="100%" valign="top" class="s12" style="padding-left:15px;">
+            <a class="name" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 
-    <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-      <?php if ( has_post_thumbnail()) :
-        the_post_thumbnail('medium');
-      else: ?>
-        <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-      <?php endif; ?>
-    </a><!-- /post thumbnail -->
+            <div style="width:1px; height:9px;"></div>
+              <?php wpeExcerpt('wpeExcerpt40'); ?>
+            <div style="width:1px; height:9px;"></div>
 
-    <h2 class="inner-title">
-      <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-    </h2><!-- /post title -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="hr"></div>
 
-    <span class="date"><?php the_time('j F Y'); ?> <span><?php the_time('G:i'); ?></span></span>
-    <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-    <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
-
-    <?php wpeExcerpt('wpeExcerpt40'); ?>
-
-  </div><!-- /looper -->
   <?php endwhile; else: ?>
   <div>
-
     <h2 class="title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
-
   </div><!-- /article -->
 <?php endif; ?>
