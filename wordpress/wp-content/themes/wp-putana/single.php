@@ -1,5 +1,4 @@
-<?php /* Template Name: Front Page */ get_header(); ?>
-  <tr class="maincontent">
+<?php get_header(); ?>
 
   <?php get_sidebar('left'); ?>
 
@@ -19,7 +18,5 @@
     </td>
 
   <?php get_sidebar('right'); ?>
-
-  </tr>
 
 <?php get_footer(); ?>

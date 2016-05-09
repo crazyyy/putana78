@@ -39,17 +39,7 @@
                 </tr>
                 <tr>
                   <td colspan="2">
-                    <table width="100%" cellpadding="5" cellspacing="0" border="0">
-                      <tbody>
-                        <tr>
-                          <td align="center" class="menu"><a href="http://putana78.com/" title="Проститутки Питера - Индивидуалки">Проститутки Питера</a></td>
-                          <td align="center" class="menu"><a href="http://putana78.com/map/" target="_blank" title="Интим карта Питера">Интим карта</a></td>
-                          <td align="center" class="menu"><a href="http://putana78.com/parni.php" title="Парни, мужчины по вызову в Питере">Парни</a></td>
-                          <td align="center" class="menu"><a href="http://putana78.com/intim_saloni.php" title="Интим салоны Питера">Интим салоны</a></td>
-                          <td align="center" class="menu"><a href="http://putana78.com/saloni_massaga.php" title="Массажные салоны Питера">Массажные салоны</a></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <?php wpeHeadNav(); ?>
                   </td>
                 </tr>
                 <tr>
