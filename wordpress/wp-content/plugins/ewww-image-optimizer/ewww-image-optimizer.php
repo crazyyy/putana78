@@ -1,7 +1,7 @@
 <?php
 /**
  * Integrate image optimizers into WordPress.
- * @version 2.8.0
+ * @version 2.8.2
  * @package EWWW_Image_Optimizer
  */
 /*
@@ -10,7 +10,7 @@ Plugin URI: https://wordpress.org/extend/plugins/ewww-image-optimizer/
 Description: Reduce file sizes for images within WordPress including NextGEN Gallery and GRAND FlAGallery. Uses jpegtran, optipng/pngout, and gifsicle.
 Author: Shane Bishop
 Text Domain: ewww-image-optimizer
-Version: 2.8.0
+Version: 2.8.2
 Author URI: https://ewww.io/
 License: GPLv3
 */
@@ -1134,22 +1134,25 @@ function ewww_image_optimizer_tool_found( $path, $tool ) {
 // searches for the given $binary on a Windows system and passes along the $switch
 function ewww_image_optimizer_find_win_binary( $binary, $switch ) {
 	ewwwio_debug_message( '<b>' . __FUNCTION__ . '()</b>' );
+	if ( empty( $binary ) || empty( $switch ) ) {
+		return '';
+	}
 	$use_system = ewww_image_optimizer_get_option( 'ewww_image_optimizer_skip_bundle' );
-	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '.exe' ) ) {
+	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '.exe' ) && ! $use_system ) {
 		$binary_path = EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '.exe';
 		ewwwio_debug_message( "found $binary_path, testing..." );
 		if ( ewww_image_optimizer_md5check( $binary_path ) && ewww_image_optimizer_tool_found( '"' . $binary_path . '"', $switch ) ) {
 			return '"' . $binary_path . '"';
 		}
 	}
-	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '-custom.exe' ) && $j ) {
+	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '-custom.exe' ) && ! $use_system ) {
 		$binary_path = EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '-custom.exe';
 		ewwwio_debug_message( "found $binary_path, testing..." );
 		if ( ewww_image_optimizer_tool_found( '"' . $binary_path . '"', $switch ) ) {
 			return '"' . $binary_path . '"';
 		}
 	}
-	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '-alt.exe' ) && $j ) {
+	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '-alt.exe' ) && ! $use_system ) {
 		$binary_path = EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary . '-alt.exe';
 		ewwwio_debug_message( "found $binary_path, testing..." );
 		if ( ewww_image_optimizer_tool_found( '"' . $binary_path . '"', $switch ) ) {
@@ -1167,6 +1170,9 @@ function ewww_image_optimizer_find_win_binary( $binary, $switch ) {
 // searches for the given $binary on a *nix system and passes along the $switch
 function ewww_image_optimizer_find_nix_binary( $binary, $switch ) {
 	ewwwio_debug_message( '<b>' . __FUNCTION__ . '()</b>' );
+	if ( empty( $binary ) || empty( $switch ) ) {
+		return '';
+	}
 	$use_system = ewww_image_optimizer_get_option( 'ewww_image_optimizer_skip_bundle' );
 	// first check for the binary in the ewww tool folder
 	if ( file_exists( EWWW_IMAGE_OPTIMIZER_TOOL_PATH . $binary ) && ! $use_system ) {
@@ -1507,7 +1513,7 @@ function ewww_image_optimizer( $file, $gallery_type = 4, $converted = false, $ne
 				}
 			// if conversion and optimization are both turned OFF, finish the JPG processing
 			} elseif ( ! $convert ) {
-				ewww_image_optimizer_webp_create( $file, $orig_size, $type, $tools['WEBP'], $orig_size != $new_size );
+				ewww_image_optimizer_webp_create( $file, $orig_size, $type, $tools['WEBP'] );
 				break;
 			}
 			// if the conversion process is turned ON, or if this is a resize and the full-size was converted
@@ -1540,8 +1546,13 @@ function ewww_image_optimizer( $file, $gallery_type = 4, $converted = false, $ne
 					$png_size = ewww_image_optimizer_filesize( $pngfile );
 				}
 				if ( ! $png_size ) {
+					$convert_path = '';
 					// retrieve version info for ImageMagick
-					$convert_path = ewww_image_optimizer_find_nix_binary( 'convert', 'i' );
+					if ( PHP_OS != 'WINNT' ) {
+						$convert_path = ewww_image_optimizer_find_nix_binary( 'convert', 'i' );
+					} elseif ( PHP_OS == 'WINNT' ) {
+						$convert_path = ewww_image_optimizer_find_win_binary( 'convert', 'i' );
+					}
 					if ( ! empty( $convert_path ) ) {
 						ewwwio_debug_message( 'converting with ImageMagick' );
 						exec( $convert_path . " " . ewww_image_optimizer_escapeshellarg( $file ) . " -strip " . ewww_image_optimizer_escapeshellarg( $pngfile ) );
@@ -1782,7 +1793,7 @@ function ewww_image_optimizer( $file, $gallery_type = 4, $converted = false, $ne
 			// if conversion and optimization are both disabled we are done here
 			} elseif ( ! $convert ) {
 				ewwwio_debug_message( 'calling webp, but neither convert or optimize' );
-				ewww_image_optimizer_webp_create( $file, $orig_size, $type, $tools['WEBP'], $orig_size != $new_size );
+				ewww_image_optimizer_webp_create( $file, $orig_size, $type, $tools['WEBP'] );
 				break;
 			}
 			// retrieve the new filesize of the PNG

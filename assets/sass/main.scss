@@ -1,3 +1,20 @@
+.clearfix {
+  *zoom: 1;
+  &:before {
+    display: table;
+
+    content: '';
+  }
+  &:after {
+    display: table;
+    clear: both;
+
+    content: '';
+  }
+}
+.clear {
+  clear: both;
+}
 @import 'variables';
 @import 'mixin';
 @import 'wordpress';
@@ -281,13 +298,39 @@ a {
   padding: 0 20px;
 }
 .pagination {
-
-    text-align: center;
-  a,span {
+  text-align: center;
+  a,
+  span {
     display: inline-block;
+
     margin: 0 5px;
   }
 }
 .girls-title {
+  margin-bottom: 10px;
+}
+.al_login {
+  h3 {
+    display: none;
+  }
+}
+.al_nodisplay {
+  display: none;
+}
+
+#al_loading,
+#al_login,
+#al_register,
+#al_lostPassword {
+  height: 255px;
+}
+
+#al_loadingImage {
+  margin-top: 35px;
+}
+.title-this {
+
+}
+.my-login {
   margin-bottom: 10px;
 }

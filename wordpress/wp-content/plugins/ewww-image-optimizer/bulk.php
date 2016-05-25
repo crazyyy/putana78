@@ -156,6 +156,9 @@ function ewww_image_optimizer_count_optimized( $gallery, $return_ids = false ) {
 							if ( ! empty( $disabled_sizes[ $size ] ) ) {
 								continue;
 							}
+							if ( strpos( $size, 'webp') === 0 ) {
+								continue;
+							}
 							$resize_count++;
 							if ( empty( $meta['sizes'][ $size ]['ewww_image_optimizer'] ) ) {
 								$unoptimized_re++;

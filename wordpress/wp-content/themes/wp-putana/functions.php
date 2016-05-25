@@ -13,6 +13,12 @@ function wpeAdminThemeStyle() {
   wp_enqueue_style('wpe-admin-style', get_template_directory_uri() . '/css/editor-style.css');
 }
 
+include_once( get_stylesheet_directory() . '/advanced-custom-fields/acf.php' );
+include_once( get_stylesheet_directory() . '/acf-repeater/acf-repeater.php' );
+include_once( get_stylesheet_directory() . '/acf-gallery/acf.php' );
+include_once( get_stylesheet_directory() . '/ajax-login/ajax-login.php' );
+
+
 //  Catch first image from post and display it
 function catchFirstImage() {
   global $post, $posts;
@@ -660,19 +666,19 @@ add_action( 'init', 'post_type_girsl' );
 function post_type_girsl() {
 
   $labels = array(
-    'name' => 'Girls',
-    'singular_name' => 'Girls',
-    'add_new' => 'Add',
-    'add_new_item' => 'Add',
-    'edit' => 'Edit',
-    'edit_item' => 'Edit',
-    'new-item' => 'Add',
-    'view' => 'View',
-    'view_item' => 'View',
-    'search_items' => 'Search',
+    'name' => 'Анкеты',
+    'singular_name' => 'Анкеты',
+    'add_new' => 'Добавить',
+    'add_new_item' => 'Добавить',
+    'edit' => 'Редактировать',
+    'edit_item' => 'Редактировать',
+    'new-item' => 'Добавить',
+    'view' => 'Посмотреть',
+    'view_item' => 'Посмотреть',
+    'search_items' => 'Искать',
     'not_found' => 'Not Found',
     'not_found_in_trash' => 'Not Found',
-    'parent' => 'Parent'
+    'parent' => 'Родительская'
   );
 
   $args = array(

@@ -2,39 +2,10 @@
   <td bgcolor="#cdcdcd" colspan="2" valign="top" align="left">
     <div style="width:200px; padding:15px;">
 
-<!--       <span class="title">Вход</span>
-      <br>
-      <span class="s12">для размещения анкет</span>
-      <div class="hr2"></div>
-      <form name="enter" action="#" method="post">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            <tr>
-              <td><small>E-mail:</small>
-                <br>
-                <input type="text" name="email" size="20" maxlength="50">
-              </td>
-            </tr>
-            <tr>
-              <td><small>Пароль:</small>
-                <br>
-                <input type="password" name="pass" size="20" maxlength="20">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="submit" name="enter" value="войти">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-      <div class="hr2"></div>
-      • <a href="#" rel="nofollow">Регистрация</a>
-      <br>
+      <?php get_ajaxlogin(); ?>
       <div class="hr2"></div>
       <br>
-      <!--noindex--> -->
+      <!--noindex -->
 
       <span class="title">Реклама</span>
       <br>
