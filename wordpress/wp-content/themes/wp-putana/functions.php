@@ -13,9 +13,33 @@ function wpeAdminThemeStyle() {
   wp_enqueue_style('wpe-admin-style', get_template_directory_uri() . '/css/editor-style.css');
 }
 
+function custom_style_for_authors() {
+  global $user_level;
+  if ($user_level == '2' ) {
+     echo '<style type="text/css">
+      #wp-admin-bar-wp-logo,
+      #wpfooter,
+      #wp-admin-bar-wpseo-menu,
+      #wp-admin-bar-comments,
+      #wpseo_meta,
+      .menu-icon-dashboard,
+      .menu-icon-post,
+      .menu-icon-tools,
+      .menu-icon-comments,
+      .menu-icon-media {
+        display: none;
+      }
+     </style>';
+   }
+}
+
+add_action('admin_enqueue_scripts', 'custom_style_for_authors');
+
+
+
 include_once( get_stylesheet_directory() . '/advanced-custom-fields/acf.php' );
 include_once( get_stylesheet_directory() . '/acf-repeater/acf-repeater.php' );
-include_once( get_stylesheet_directory() . '/acf-gallery/acf.php' );
+include_once( get_stylesheet_directory() . '/acf-gallery/acf-gallery.php' );
 include_once( get_stylesheet_directory() . '/ajax-login/ajax-login.php' );
 
 
@@ -182,7 +206,7 @@ if (function_exists('register_sidebar')) {
     'description' => __('Description for this widget-area...', 'wpeasy'),
     'id' => 'widgetarea1',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget' => '</div>',
+    'after_widget' => '</div><div class="hr2"></div>',
     'before_title' => '<h6>',
     'after_title' => '</h6>'
   ));

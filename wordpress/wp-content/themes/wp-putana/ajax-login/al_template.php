@@ -24,13 +24,10 @@
  ***********************/
 ?>
 
-
-
 <?php
   global $user_ID, $user_identity;
   get_currentuserinfo();
   if (!$user_ID) {
-
 
   /*******
   This part is drawn when user is NOT logged in.
@@ -107,8 +104,13 @@
 <div>
   <h3><?php echo $user_identity; ?></h3>
   <hr/>
+  <?php $user_ID = get_current_user_id(); ?>
+  <ul class="userlinks">
+    <li><a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=girls">Добавить анкету</a></li>
+    <li><a href="<?php echo home_url(); ?>/wp-admin/edit.php?post_type=girls&author=<?php echo $user_ID; ?>">Мои анкеты</a></li>
+  </ul>
   <div>
-    <a href="<?php echo get_settings('siteurl') . '/wp-login.php?action=logout&amp;redirect_to=' . $_SERVER['REQUEST_URI']; ?>"><?php _e('Logout'); ?></a>
+    <a href="<?php echo get_settings('siteurl') . '/wp-login.php?action=logout&amp;redirect_to=' . $_SERVER['REQUEST_URI']; ?>">Выход</a>
   </div>
 </div>
 
