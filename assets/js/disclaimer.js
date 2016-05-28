@@ -49,10 +49,10 @@ function disclaimer_delete() {
 
 
 
-if (!getCookie("disclaimer" )) {
+// if (!getCookie("disclaimer" )) {
 
-  $( document ).ready(function() {
-    disclaimer_view()
-  });
+//   $( document ).ready(function() {
+//     disclaimer_view()
+//   });
 
-}
+// }
